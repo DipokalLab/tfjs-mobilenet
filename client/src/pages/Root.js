@@ -1,6 +1,5 @@
 import React from "react";
 import Main from "../components/Main.js"
-import Feed from "../components/Feed.js"
 
 
 function RootPage() {
@@ -8,7 +7,6 @@ function RootPage() {
     return (
         <div>
             <Main></Main>
-            <Feed></Feed>
         </div>
     );
   }

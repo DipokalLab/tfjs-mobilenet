@@ -1,15 +1,14 @@
 {
   "type": "module",
-  "name": "frame1",
+  "name": "tfjsmobilenet",
   "version": "2.0.0",
-  "description": "Nodejs Frame Project",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "mocha",
     "start": "NODE_ENV=production node app.js",
     "start:dev": "NODE_ENV=development node app.js",
-    "build-webpack": "webpack --mode=development",
-    "build-ts": "tsc -w"
+    "bundle": "webpack --mode=development"
   },
   "repository": {
     "type": "git",
