@@ -23,7 +23,9 @@ export async function init (app) {
     app.use(cookieParser());
 
     app.use('/dist', express.static('client/dist'));
+    app.use('/public', express.static('public'));
+
     app.use('/', mainRouter);
-    
+
     return app;
 }
