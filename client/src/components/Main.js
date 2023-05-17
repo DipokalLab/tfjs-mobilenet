@@ -31,7 +31,6 @@ function Main() {
                 src="/public/dog.jpg"
                 ref={imageRef}
                 width="224" 
-                height="224"
             ></img>
             {predictionsMap}
         </header>
