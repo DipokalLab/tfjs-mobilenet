@@ -26,6 +26,7 @@ function Main() {
 
     return (
         <header className="bg-white h-100">
+            <FileUpload image={imageRef} predict={predict}></FileUpload>
             <img 
                 src="/public/dog.jpg"
                 ref={imageRef}
@@ -45,11 +46,42 @@ function PredictAccuracyItem({ name, probability }) {
     )
 }
 
-function FileUpload() {
+function FileUpload({ image, predict }) {
+    const [file, setFile] = useState()
+
+    const handleFileChange = (e) => {
+        if (!e.target.files) {
+            return 0
+        }
+
+        const uploadFile = e.target.files[0]
+
+        setFile(uploadFile)
+        changeFile(uploadFile)
+    }
+
+    const changeFile = (uploadFile) => {
+        const fileUrl = fileToUrl(uploadFile)
+        image.current.src = fileUrl
+        sendToPredict()
+    }
+
+    const fileToUrl = (targetFile) => {
+        const url = URL.createObjectURL(targetFile)
+        return url
+    }
+
+    const sendToPredict = () => {
+        predict()
+        dds.toast({
+            content: '파일 업로드 성공'
+        })
+    }
+
     return (
         <div class="mb-3">
             <label for="formFile" class="form-label">예측할 파일 업로드</label>
-            <input class="form-control" type="file" id="formFile" />
+            <input class="form-control" type="file" id="formFile" onChange={handleFileChange} />
         </div>
     )
 }
