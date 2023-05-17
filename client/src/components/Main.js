@@ -21,7 +21,7 @@ function Main() {
     }
 
     const predictionsMap = predictAccuracy.map((item) => {
-        return `${item.className} ${item.probability}`
+        return <PredictAccuracyItem name={item.className} probability={item.probability}></PredictAccuracyItem>
     })
 
     return (
@@ -35,6 +35,23 @@ function Main() {
             {predictionsMap}
         </header>
     );
+}
+
+function PredictAccuracyItem({ name, probability }) {
+    return (
+        <div class="bg-light p-2 mb-1" role="alert">
+            {name} <span class="material-symbols-outlined">chevron_right</span> {probability.toFixed(4)}% 일치율
+        </div>
+    )
+}
+
+function FileUpload() {
+    return (
+        <div class="mb-3">
+            <label for="formFile" class="form-label">예측할 파일 업로드</label>
+            <input class="form-control" type="file" id="formFile" />
+        </div>
+    )
 }
 
   
